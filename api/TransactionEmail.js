@@ -17,13 +17,14 @@ class TransactionEmail extends Request {
      * @param replyToName
      * @param replyToEmail
      * @param subject
+     * @param listUid
      * @param body
      * @param plainText
      * @param sendAt
      */
 
-    create(toName, toEmail, fromName, fromEmail, replyToName, replyToEmail, subject, body, plainText, sendAt) {
-        if (!toName || !toEmail || !fromName || !subject || !body || !sendAt) {
+    create(toName, toEmail, fromName, fromEmail, replyToName, replyToEmail, subject, listUid, body, plainText, sendAt) {
+        if (!toName || !toEmail || !fromName || !subject || !listUid || !body || !sendAt) {
             return Promise.reject('ParamInvalid');
         }
 
@@ -34,6 +35,7 @@ class TransactionEmail extends Request {
             reply_to_email: replyToEmail,
             reply_to_name: replyToName,
             subject: subject,
+            list_uid: listUid,
             send_at: sendAt
         };
 
