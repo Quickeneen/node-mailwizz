@@ -22,7 +22,7 @@ class TransactionEmail extends Request {
      */
 
     create(toEmail, fromName, fromEmail, replyToEmail, subject, body, plainText,listUid, sendAt) {
-        if (!toEmail || !fromName || !fromEmail  || !replyToEmail || !subject || !body || !plainTExt || !listUid || !sendAt) {
+        if (!toEmail || !fromName || !fromEmail  || !replyToEmail || !subject || !body || !plainText || !listUid || !sendAt) {
             return Promise.reject('miss parameters');
         }
 
