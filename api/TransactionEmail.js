@@ -10,11 +10,9 @@ class TransactionEmail extends Request {
 
     /**
      *
-     * @param toName
      * @param toEmail
      * @param fromName
      * @param fromEmail
-     * @param replyToName
      * @param replyToEmail
      * @param subject
      * @param listUid
@@ -23,17 +21,16 @@ class TransactionEmail extends Request {
      * @param sendAt
      */
 
-    create(toName, toEmail, fromName, fromEmail, replyToName, replyToEmail, subject, listUid, body, plainText, sendAt) {
-        if (!toName || !toEmail || !fromName || !subject || !listUid || !body || !sendAt) {
-            return Promise.reject('ParamInvalid');
+    create(toEmail, fromName, fromEmail, replyToEmail, subject, body, plainText,listUid, sendAt) {
+        if (!toEmail || !fromName || !fromEmail  || !replyToEmail || !subject || !body || !plainTExt || !listUid || !sendAt) {
+            return Promise.reject('miss parameters');
         }
 
         let data = {
-            to_name: toName,
             to_email: toEmail,
             from_name: fromName,
+            from_email: fromEmail,
             reply_to_email: replyToEmail,
-            reply_to_name: replyToName,
             subject: subject,
             list_uid: listUid,
             send_at: sendAt
