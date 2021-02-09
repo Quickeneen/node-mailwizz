@@ -99,8 +99,8 @@ class Request {
         }
 
         let signatureString = `${method} ${apiUrl}${separator}${encrypt.serialize(params)}`;
-        console.log(apiUrl);
-        console.log(signatureString);
+        /*console.log(apiUrl);
+        console.log(signatureString);*/
         let hash = encrypt.hmac_sha(privateKey, signatureString);
 
         this.header['X-MW-SIGNATURE'] = hash;
