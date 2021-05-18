@@ -14,13 +14,14 @@ class EmailBlacklist extends Request {
      *
      */
 
-    create(email) {
-        if (!email) {
+    create(email,reason) {
+        if (!email && !reason) {
             return Promise.reject('miss parameters');
         }
 
         let data = {
-            email: email
+            email: email,
+            reason: reason
         };
 
         this.url = path;
